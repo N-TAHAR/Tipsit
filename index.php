@@ -13,6 +13,10 @@
       echo '<h2>Salut ' . "l'inconnu" . ' !</h2>';
       echo '<p>Inscris toi <a href="register.php">ici</a> pour te faire connaître.</p>';
     }
+
+    for ($i=0; $i < ; $i++) { 
+      # code...
+    }
   ?>
   
 </body>
