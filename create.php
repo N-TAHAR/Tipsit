@@ -8,8 +8,8 @@
 
   if(isset($_POST['create'])){
     $username = $_SESSION['user']['username'];
-    $content = strip_tags($_POST['content']);
-    $keyword = strip_tags($_POST['keyword']);
+    $content = trim(strip_tags($_POST['content']));
+    $keyword = trim(strip_tags($_POST['keyword']));
 
     $req = $pdo -> prepare(
       'INSERT INTO posts (username, content, keyword, date)

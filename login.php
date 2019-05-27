@@ -16,6 +16,7 @@
 
     $user = $req -> fetch(PDO::FETCH_ASSOC);
 
+
     $_SESSION['user'] = $user;
 
     // On redirige sur la page d'accueil
@@ -26,12 +27,11 @@
       header('Location: index.php');  
     }
   }
-
-  // Déconnexion de l'utilisateur courant
-  if(isset($_GET['logout'])){
+  
+  // Déconnexion si l'utilisateur arrive depuis login.php?logout
+  if (isset($_GET['logout'])) {
     unset($_SESSION['user']);
   }
-
   include "assets/inc/header.php";
 ?>
 
