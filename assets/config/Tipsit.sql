@@ -1,4 +1,4 @@
-CREATE DATABASE Tipsit CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+CREATE DATABASE Tipsit CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE Tipsit;
 
 CREATE TABLE user (
