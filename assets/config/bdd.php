@@ -7,7 +7,7 @@ try {
 
   // Instantiation de PDO
   $pdo = new PDO(
-    //mysql=host=localhost;dbname=boutique;
+    //mysql=host=localhost;dbname=tipsit;
     DB_SGBD . ':host=' . DB_HOST . ';dbname=' . DB_DBNAME . ';',
     DB_USER,
     DB_PASS,
