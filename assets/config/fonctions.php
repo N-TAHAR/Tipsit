@@ -3,7 +3,7 @@
 //Un utilisateur est-il connecté ?
 function isLoggedIn() : bool
 {
-  return isset($_SESSION['user']);
+  return isset($_SESSION['user']['username']);
 }
 
 // Récupérer une information liée à l'utilisateur

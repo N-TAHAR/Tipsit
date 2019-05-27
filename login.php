@@ -27,6 +27,11 @@
     }
   }
 
+  // Déconnexion de l'utilisateur courant
+  if(isset($_GET['logout'])){
+    unset($_SESSION['user']);
+  }
+
   include "assets/inc/header.php";
 ?>
 
