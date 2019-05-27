@@ -3,9 +3,9 @@
 
 
   if(isset($_POST['register'])){
-    $username = strip_tags($_POST['username']);
-    $email = strip_tags($_POST['email']);
-    $password = strip_tags($_POST['password']);
+    $username = trim(strip_tags($_POST['username']));
+    $email = trim(strip_tags($_POST['email']));
+    $password = trim(strip_tags($_POST['password']));
 
     $req = $pdo -> prepare(
       'INSERT INTO user (username, email, password)
