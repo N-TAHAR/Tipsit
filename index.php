@@ -14,9 +14,6 @@
       echo '<p>Inscris toi <a href="register.php">ici</a> pour te faire connaître.</p>';
     }
 
-    for ($i=0; $i < ; $i++) { 
-      # code...
-    }
   ?>
   
 </body>
