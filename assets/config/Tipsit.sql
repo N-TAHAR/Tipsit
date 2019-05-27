@@ -14,7 +14,7 @@ CREATE TABLE posts (
   username VARCHAR(20) NOT NULL,
   content VARCHAR(300) NOT NULL,
   date VARCHAR(255) NOT NULL,
-  claps INT(3) NOT NULL,
-  keyword VARCHAR(20) DEFAULT NULL,
+  claps INT(3) DEFAULT 0,
+  keyword VARCHAR(20) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=INNODB;
