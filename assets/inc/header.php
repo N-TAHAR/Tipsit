@@ -14,6 +14,7 @@
     <ul>
       <li><a href="index.php">Accueil</a></li>
       <?php if(isLoggedIn()): ?>
+        <li><a href="create.php">new tips</a></li>    
         <li><a href="login.php?logout">Deconnexion</a></li>    
       <?php else : ?>
       <li><a href="login.php">Connexion</a></li>
