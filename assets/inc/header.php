@@ -13,12 +13,11 @@
   <nav>
     <ul>
       <li><a href="index.php">Accueil</a></li>
-      <?php if (!isLoggedIn()) :
-      ?>
+      <?php if(isLoggedIn()): ?>
+        <li><a href="login.php?logout">Deconnexion</a></li>    
+      <?php else : ?>
       <li><a href="login.php">Connexion</a></li>
       <li><a href="register.php">Inscription</a></li>
-      <?php else : ?>
-      <li><a href="login.php?logout">Déconnexion</a></li>
       <?php endif; ?>
     </ul>
   </nav>
