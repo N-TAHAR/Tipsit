@@ -8,6 +8,8 @@ require_once __DIR__ . '/param.php';
 
 require_once __DIR__ . '/bdd.php';
 
+configPDO::connect();
+
 require_once __DIR__ . '/fonctions.php';
 
 session_start();
