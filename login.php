@@ -1,6 +1,10 @@
 <?php
   include "assets/config/bootstrap.php";
 
+  $getPDO = new configPDO;
+  $getPDO->getPDO();
+  $pdo = $getPDO->pdo;
+
   if(isset($_POST['login'])){
 
     $req = $pdo -> prepare(

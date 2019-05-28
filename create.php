@@ -2,24 +2,36 @@
 
   include "assets/config/bootstrap.php";
 
-  if(!isset($_SESSION['user']['username'])){
+  if(empty($_SESSION['user'])){
     header('Location: index.php');
   }
 
-  if(isset($_POST['create'])){
-    $username = $_SESSION['user']['username'];
-    $content = trim(strip_tags($_POST['content']));
-    $keyword = trim(strip_tags($_POST['keyword']));
+  $getPDO = new configPDO;
+  $getPDO->getPDO();
+  $pdo = $getPDO->pdo;
 
-    $req = $pdo -> prepare(
-      'INSERT INTO posts (username, content, keyword, date)
-      VALUE (:username, :content, :keyword, NOW())'
-    );
-    $req -> bindParam(':username', $username);
-    $req -> bindParam(':content', $content);
-    $req -> bindParam(':keyword', $keyword);
-    $req -> execute();
-    header('Location: index.php');
+  if(isset($_POST['create'])){
+    if(!empty(trim(strip_tags($_POST['content'])))){
+      if(!empty(trim(strip_tags($_POST['keyword'])))){
+        $username = $_SESSION['user']['username'];
+        $content = trim(strip_tags($_POST['content']));
+        $keyword = trim(strip_tags($_POST['keyword']));
+
+        $req = $pdo -> prepare(
+          'INSERT INTO posts (username, content, keyword, date)
+          VALUE (:username, :content, :keyword, NOW())'
+        );
+        $req -> bindParam(':username', $username);
+        $req -> bindParam(':content', $content);
+        $req -> bindParam(':keyword', $keyword);
+        $req -> execute();
+        header('Location: index.php');
+      }else{
+        echo 'choose a keyword';
+      }
+    }else{
+      echo 'write something';
+    }
   }
 
   include "assets/inc/header.php";
