@@ -3,6 +3,7 @@ configPDO::connect();
 
 class Tip {
     
+
     public function createTips(){
 
       $req = configPDO::$pdo->prepare(
@@ -10,10 +11,12 @@ class Tip {
         FROM posts
         '
       );
-    
+      
       $req -> execute();
+
     
       while($donnees = $req -> fetch()){
+
         echo '<div class="tip">';
         echo '<p>' . strip_tags($donnees['username']) . '</p>';
         echo '<p>' . strip_tags($donnees['content']) . '</p>';
