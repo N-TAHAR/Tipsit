@@ -12,6 +12,8 @@
     $tip->createTips();
 
   ?>
-  
+
+  <script src="main.js"></script>
+
 </body>
 </html>

@@ -1,15 +1,20 @@
 <?php
+  include "assets/config/bootstrap.php";
 
-  $getPDO = new configPDO;
-  $getPDO->getPDO();
-  $this->pdo = $getPDO->pdo;
+  
+  $id = $_POST['postId'];
 
-  $req = $this->pdo -> prepare(
+  $req = configPDO::$pdo->prepare(
     ' UPDATE posts
-    SET claps = :clap WHERE id = :id
+    SET claps = claps + 1 WHERE id = :id
     '
   );
 
-  $req -> bindParam(':clap', $clap);
-  $req -> bindParam(':id', $id);
-  $req -> execute();
+  $req->bindParam(':id', $id);
+  $req->execute();
+
+  /*
+  composer init
+  minimum stability: stable
+  dependencies : no
+  */

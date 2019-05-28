@@ -6,9 +6,6 @@
     header('Location: index.php');
   }
 
-  $getPDO = new configPDO;
-  $getPDO->getPDO();
-  $pdo = $getPDO->pdo;
 
   if(isset($_POST['create'])){
     if(!empty(trim(strip_tags($_POST['content'])))){
@@ -17,7 +14,7 @@
         $content = trim(strip_tags($_POST['content']));
         $keyword = trim(strip_tags($_POST['keyword']));
 
-        $req = $pdo -> prepare(
+        $req = configPDO::$pdo -> prepare(
           'INSERT INTO posts (username, content, keyword, date)
           VALUE (:username, :content, :keyword, NOW())'
         );

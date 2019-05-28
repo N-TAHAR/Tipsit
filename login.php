@@ -1,13 +1,13 @@
 <?php
   include "assets/config/bootstrap.php";
 
-  $getPDO = new configPDO;
-  $getPDO->getPDO();
-  $pdo = $getPDO->pdo;
+  if(isset($_SESSION['user']['username'])){
+    header('Location: index.php');  
+  }
 
   if(isset($_POST['login'])){
 
-    $req = $pdo -> prepare(
+    $req = configPDO::$pdo -> prepare(
       ' SELECT * 
         FROM user
         WHERE username = :username AND password = :password
