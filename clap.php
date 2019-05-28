@@ -1,10 +1,11 @@
 <?php
-  include "assets/config/bootstrap.php";
+
+include "assets/config/bootstrap.php";
 
   
   $id = $_POST['postId'];
 
-  $req = configPDO::$pdo->prepare(
+  $req = App\Database::$pdo->prepare(
     ' UPDATE posts
     SET claps = claps + 1 WHERE id = :id
     '

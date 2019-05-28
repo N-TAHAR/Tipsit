@@ -1,5 +1,7 @@
 <?php
-  include "assets/config/bootstrap.php";
+use App\Database;
+
+include "assets/config/bootstrap.php";
 
   if(isset($_SESSION['user']['username'])){
     header('Location: index.php');  
@@ -7,7 +9,7 @@
 
   if(isset($_POST['login'])){
 
-    $req = configPDO::$pdo -> prepare(
+    $req = Database::$pdo -> prepare(
       ' SELECT * 
         FROM user
         WHERE username = :username AND password = :password
