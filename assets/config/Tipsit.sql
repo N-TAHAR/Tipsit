@@ -1,5 +1,5 @@
-CREATE DATABASE account CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE account;
+CREATE DATABASE tipsit CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE tipsit;
 
 CREATE TABLE utilisateur (
   id INT(3) NOT NULL AUTO_INCREMENT,
@@ -11,7 +11,7 @@ CREATE TABLE utilisateur (
 
 CREATE TABLE posts (
   id INT(3) NOT NULL AUTO_INCREMENT,
-  pseudo VARCHAR(20) NOT NULL,
+   VARCHAR(20) NOT NULL,
   content VARCHAR(300) NOT NULL,
   date VARCHAR(255) NOT NULL,
   claps INT(3) NOT NULL,
