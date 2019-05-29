@@ -2,6 +2,12 @@
 
   include "assets/config/bootstrap.php";
 
+  $categories = array(
+    'dev',
+    'design',
+    'front'
+  );
+
   if(empty($_SESSION['user'])){
     header('Location: index.php');
   }
@@ -9,7 +15,12 @@
   if(isset($_POST['create'])){
     if(!empty(trim(strip_tags($_POST['content'])))){
       if(!empty(trim(strip_tags($_POST['keyword'])))){
-        \App\Entity\Tip::createTip(); 
+        $tip = new App\Entity\Tip();
+        $tip->setUsername($_SESSION['user']['username']);
+        $tip->setContent($_POST['content']);
+        $tip->setKeyword($_POST['keyword']);
+        $tip->createTip();
+        header('Location: index.php');
       }else{
         echo 'choose a keyword';
       }
@@ -29,11 +40,9 @@
   <label for="keyword">Choose a keyword</label>
   <select name="keyword" id="keyword">
     <option value="">Please choose a keyword</option>
-    <option value="dev">dev</option>
+    <option value="front">front</option>
+    <option value="back">back</option>
     <option value="design">design</option>
-    <option value="coucou">coucou</option>
-    <option value="life">life</option>
-    <option value="animals">animals</option>
   </select>
   <input type="submit" name="create">
 </form>
