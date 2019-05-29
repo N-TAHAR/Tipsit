@@ -7,9 +7,8 @@
   };
   
   function getURL($array) {
-    $params = $_GET;
-    $newparams = array_merge($params, $array);
-    return http_build_query($newparams);
+    $params = array_merge($_GET, $array);
+    return http_build_query($params);
   };
 ?>
 

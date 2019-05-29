@@ -20,7 +20,7 @@ class Tip {
 
       $req = \App\Database::$pdo -> prepare(
         'INSERT INTO posts (username, content, keyword, date)
-        VALUE (:username, :content, :keyword, NOW())'
+        VALUES (:username, :content, :keyword, NOW())'
       );
       $req -> bindParam(':username', $this->getUsername());
       $req -> bindParam(':content', $this->getContent());

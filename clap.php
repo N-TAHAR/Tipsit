@@ -1,15 +1,27 @@
 <?php
 
-include "assets/config/bootstrap.php";
 
+header('Content-Type: application/json');
+
+
+  include "assets/config/bootstrap.php";
   
-  $id = $_POST['postId'];
+  
+    $postid = $_POST['postId'];
+    $userid = $_SESSION['user']['id'];
+  
+    $bulb = new App\Entity\Bulbs();
+  
+    $bulb->setUserId($userid);
+    $bulb->setPostId($postid);
+  
+    $bulb->increment(); 
+    $bulb->save();
 
-  $req = App\Database::$pdo->prepare(
-    ' UPDATE posts
-    SET claps = claps + 1 WHERE id = :id
-    '
-  );
+    $postLiked = $bulb->getLikesByUser($postid, $userid);
+    $bulb->setBulbNumber($postLiked);
 
-  $req->bindParam(':id', $id);
-  $req->execute();
+    $bulbNumber = $bulb->getBulbNumber();
+    
+
+    echo json_encode($bulbNumber);
