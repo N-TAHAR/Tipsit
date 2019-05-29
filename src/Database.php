@@ -10,7 +10,6 @@ class Database {
     private const DB_USER   = 'root';
     private const DB_PASS = ''; 
     public static $pdo;
-    // private const SGBD = "..." 
 
     public static function connect() {
       try {
