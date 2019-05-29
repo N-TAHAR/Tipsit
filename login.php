@@ -1,31 +1,31 @@
 <?php
-  include "assets/config/bootstrap.php";
+
+include "assets/config/bootstrap.php";
+
+  if(isset($_SESSION['user']['username'])){
+    header('Location: index.php');  
+  }
 
   if(isset($_POST['login'])){
+  $user = new App\Entity\User();
 
-    $req = $pdo -> prepare(
-      ' SELECT * 
-        FROM user
-        WHERE username = :username AND password = :password
-      '
-    );
+  $user->setUsername($_POST['username']);
+  $user->connexion();
+  if ($user->connexion) {
+    if (password_verify($_POST['password'], $user->connexion['password'])) {
+      $_SESSION['user'] = $user->connexion;
+      session_write_close();
+      if(!isset($_SESSION['user']['username']) || !isset($_SESSION['user']['password'])){
+        header('Location: login.php');  
+      }else{
+        header('Location: index.php');  
+      }
+    }
+  }
 
-    $req -> bindParam(':username', $_POST['username']);
-    $req -> bindParam(':password', $_POST['password']);
-    $req -> execute();
 
-    $user = $req -> fetch(PDO::FETCH_ASSOC);
-
-
-    $_SESSION['user'] = $user;
 
     // On redirige sur la page d'accueil
-    session_write_close();
-    if(!isset($_SESSION['user']['username']) || !isset($_SESSION['user']['password'])){
-      header('Location: login.php');  
-    }else{
-      header('Location: index.php');  
-    }
   }
   
   // Déconnexion si l'utilisateur arrive depuis login.php?logout
