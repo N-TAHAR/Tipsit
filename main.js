@@ -9,7 +9,3 @@ function ajax(postId) {
     tip.querySelector('.bulbNumber').innerHTML = parseInt(tip.querySelector('.bulbNumber').innerHTML) + 1;
   })
 }
-
-if (1===1) {
-  console.log(console);
-}

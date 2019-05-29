@@ -4,6 +4,11 @@ namespace App\Entity;
 
 class Tip {
 
+    const CATEGORIES = array(
+      'front',
+      'back',
+      'design'
+    );
     private $id;
     private $username;
     private $content;
@@ -40,7 +45,7 @@ class Tip {
     }
 
     public function getContent(){
-      return $this->content;
+      return htmlspecialchars($this->content);
     }
 
     public function setContent($content){

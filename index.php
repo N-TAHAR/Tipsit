@@ -1,14 +1,32 @@
 <?php 
   include "assets/config/bootstrap.php";
   include "assets/inc/header.php";
+
+  if (!isset($_GET['sort']) || !isset($_GET['keyword'])) {
+    header('Location: index.php?' . getURL(["sort" => "hot", "keyword" => "all"]));
+  };
+  
+  function getURL($array) {
+    $params = $_GET;
+    $newparams = array_merge($params, $array);
+    return http_build_query($newparams);
+  };
 ?>
 
   <h1>Tipsit</h1>
 
+  <a href="index.php?<?php echo getURL(["sort" => "hot"]);?>"> Hot </a>
+  <a href="index.php?<?php echo getURL(["sort" => "new"])?>"> New </a>
+  <br> <br>
+  <a href="index.php?<?php echo getURL(["keyword" => "all"])?>"> All </a>
+  <a href="index.php?<?php echo getURL(["keyword" => "front"])?>"> Front </a>
+  <a href="index.php?<?php echo getURL(["keyword" => "back"])?>"> Back </a>
+  <a href="index.php?<?php echo getURL(["keyword" => "design"])?>"> Design </a>
+  <br><br>
+
   <?php
 
-  $tips = App\Entity\TipRepository::getAllTipsByBulbs('all');
-
+  $tips = App\Entity\TipRepository::sortTipsBy($_GET['sort'], $_GET['keyword']);
   foreach ($tips as $tip) {
   ?>
   <article class="post" id="<?php echo $tip->getId() ?>">
@@ -24,10 +42,7 @@
     <span class="date"><?php echo $tip->getDate() ?> </span>
   </article>
   <?php 
-  //in array
-  // epizy
   }
-
   ?>
 
   <script src="main.js"></script>
