@@ -4,87 +4,71 @@ namespace App\Entity;
 
 class Tip {
 
-    private static $id;
-    private static $username;
-    private static $content;
-    private static $date;
-    private static $claps;
-    private static $keyword;
+    private $id;
+    private $username;
+    private $content;
+    private $date;
+    private $claps;
+    private $keyword;
     
-    public static function createTip(){
-      //creer un tip
-      self::setUsername($_SESSION['user']['username']);
-      self::setContent($_POST['content']);
-      self::setKeyword($_POST['keyword']);
+    public function createTip(){
 
       $req = \App\Database::$pdo -> prepare(
         'INSERT INTO posts (username, content, keyword, date)
         VALUE (:username, :content, :keyword, NOW())'
       );
-      $req -> bindParam(':username', self::getUsername());
-      $req -> bindParam(':content', self::getContent());
-      $req -> bindParam(':keyword', self::getKeyword());
+      $req -> bindParam(':username', $this->getUsername());
+      $req -> bindParam(':content', $this->getContent());
+      $req -> bindParam(':keyword', $this->getKeyword());
       $req -> execute();
-      header('Location: index.php');
     }
 
-    public static function setTipProps($username, $content, $keyword, $date, $id, $claps){
-      self::setUsername($username);
-      self::setContent($content);
-      self::setKeyword($keyword);
-      self::setDate($date);
-      self::setId($id);
-      self::setClaps($claps);
+    public function getId(){
+      return $this->id;
     }
 
-    //
-
-    public static function getId(){
-      return self::$id;
+    public function setId($id){
+      $this->id = $id;
     }
 
-    public static function setId($id){
-      self::$id = $id;
+    public function getUsername(){
+      return $this->username;
     }
 
-    public static function getUsername(){
-      return self::$username;
+    public function setUsername($username){ 
+      $this->username = $username;
     }
 
-    public static function setUsername($username){ 
-      self::$username = $username;
+    public function getContent(){
+      return $this->content;
     }
 
-    public static function getContent(){
-      return self::$content;
+    public function setContent($content){
+      $this->content = $content;
     }
 
-    public static function setContent($content){
-      self::$content = $content;
+    public function getDate(){
+      return $this->date;
     }
 
-    public static function getDate(){
-      return self::$date;
+    public function setDate($date){
+      $this->date = $date;
     }
 
-    public static function setDate($date){
-      self::$date = $date;
+    public function getKeyword(){
+      return $this->keyword;
     }
 
-    public static function getKeyword(){
-      return self::$keyword;
+    public function setKeyword($keyword){
+      $this->keyword = $keyword;
     }
 
-    public static function setKeyword($keyword){
-      self::$keyword = $keyword;
+    public function getClaps(){
+      return $this->claps;
     }
 
-    public static function getClaps(){
-      return self::$claps;
-    }
-
-    public static function setClaps($claps){
-      self::$claps = $claps;
+    public function setClaps($claps){
+      $this->claps = $claps;
     }
 
   }
