@@ -5,24 +5,11 @@
   if(empty($_SESSION['user'])){
     header('Location: index.php');
   }
-
-
+  
   if(isset($_POST['create'])){
     if(!empty(trim(strip_tags($_POST['content'])))){
       if(!empty(trim(strip_tags($_POST['keyword'])))){
-        $username = $_SESSION['user']['username'];
-        $content = trim(strip_tags($_POST['content']));
-        $keyword = trim(strip_tags($_POST['keyword']));
-
-        $req = configPDO::$pdo -> prepare(
-          'INSERT INTO posts (username, content, keyword, date)
-          VALUE (:username, :content, :keyword, NOW())'
-        );
-        $req -> bindParam(':username', $username);
-        $req -> bindParam(':content', $content);
-        $req -> bindParam(':keyword', $keyword);
-        $req -> execute();
-        header('Location: index.php');
+        \App\Entity\Tip::createTip(); 
       }else{
         echo 'choose a keyword';
       }
@@ -37,7 +24,7 @@
 <h1>Create new tips</h1>
 
 <form action="create.php" method="post">
-  <p><?php echo $_SESSION['user']['username']; ?></p>
+  <!-- <p></p> -->
   <textarea name="content" id="content" cols="30" rows="10" maxlength="300" placeholder="Write your tip here ..."></textarea>
   <label for="keyword">Choose a keyword</label>
   <select name="keyword" id="keyword">

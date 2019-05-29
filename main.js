@@ -4,7 +4,8 @@ function ajax(postId) {
     url: "clap.php",
     data: {postId: postId},
   })
-  .done(function (response) {
-    console.log(response)
+  .done(function () {
+    tip = document.getElementById(postId);
+    tip.querySelector('.bulbNumber').innerHTML = parseInt(tip.querySelector('.bulbNumber').innerHTML) + 1;
   })
 }

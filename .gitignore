@@ -3,3 +3,4 @@
 .cache
 .vscode
 /assets/config/param.php
+/vendor/
