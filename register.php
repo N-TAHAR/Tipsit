@@ -5,9 +5,9 @@
   if(isset($_POST['register'])){
     $username = trim(strip_tags($_POST['username']));
     $email = trim(strip_tags($_POST['email']));
-    $password = trim(strip_tags($_POST['password']));
+    $password = md5(trim(strip_tags($_POST['password'])));
 
-    $req = $pdo -> prepare(
+    $req = \App\Database::$pdo->prepare(
       'INSERT INTO user (username, email, password)
       VALUE (:username, :email, :password)'
     );

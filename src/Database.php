@@ -1,8 +1,15 @@
 <?php
 
-class configPDO {
+namespace App;
 
-  public static $pdo;
+class Database {
+
+    private const DB_SGBD   = 'mysql';
+    private const DB_HOST   = 'localhost';
+    private const DB_DBNAME = 'tipsit';
+    private const DB_USER   = 'root';
+    private const DB_PASS = ''; 
+    public static $pdo;
     // private const SGBD = "..." 
 
     public static function connect() {
@@ -11,13 +18,13 @@ class configPDO {
         // le bloc catch sera exécuté
       
         // Instantiation de PDO
-        self::$pdo = new PDO(
+        self::$pdo = new \PDO(
           //mysql=host=localhost;dbname=tipsit;
-          DB_SGBD . ':host=' . DB_HOST . ';dbname=' . DB_DBNAME . ';',
-          DB_USER,
-          DB_PASS,
+          self::DB_SGBD . ':host=' . self::DB_HOST . ';dbname=' . self::DB_DBNAME . ';',
+          self::DB_USER,
+          self::DB_PASS,
           [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING,
           ]
       
         );

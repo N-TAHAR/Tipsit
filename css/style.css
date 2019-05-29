@@ -1,15 +1,60 @@
-.tip {
-  font-size: 20px;
-  background: grey;
-  width: 200px;
-  height: auto; 
+.post{
+  padding: 20px 25px;
+  width:300px;
+  height: auto;
+  filter: drop-shadow(4px 12px 34px #E1E1E1);
+  background-color: white;
+  border-radius:10px;
 }
 
-.clap{
-  background: green;
-  width: 50px;
-  height: 50px;
+.post:not(:last-child){
+  margin-bottom: 50px;
+}
+.post h2{
+font-size: 30px;
+margin-bottom: 20px;
+}
+.article{
+line-height:140%;
+height: auto;
+margin: 0px;
+}
+.bottom{
+display: flex;
+flex-direction: row;
+justify-content:space-between;
+}
+
+.bottomlikes{
+  display: flex;
+  flex-direction: row;
+}
+
+.like{
+  width:30px;
+  height:30px;
+  background-color: gold;
+  border-radius: 100px;
+  margin-top:60px;
+  margin-bottom:20px;
+  margin-right:10px;
+}
+.bulb{
+  display:flex;
+  align-items:center;
+  font-size:14px;
+  height:30px;
+  margin-top:60px;
   cursor: pointer;
-  border: none;
-  outline: none;
+}
+.name{
+  height:30px;
+  display:flex;
+  align-items:center;
+  margin-top:60px;
+}
+
+.date {
+  font-size: 14px;
+  color: grey;
 }
