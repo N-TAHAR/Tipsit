@@ -9,12 +9,12 @@ class Tip {
       'back',
       'design'
     );
-    private $id;
-    private $username;
-    private $content;
-    private $date;
-    private $claps;
-    private $keyword;
+    public $id;
+    public $username;
+    public $content;
+    public $date;
+    public $claps;
+    public $keyword;
     
     public function createTip(){
 
