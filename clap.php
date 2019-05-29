@@ -13,10 +13,3 @@ include "assets/config/bootstrap.php";
 
   $req->bindParam(':id', $id);
   $req->execute();
-
-
-  /*
-  composer init
-  minimum stability: stable
-  dependencies : no
-  */
