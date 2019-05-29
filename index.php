@@ -25,6 +25,8 @@
 
   <?php
 
+  var_dump($_SESSION['user']);
+
   $tips = App\Entity\TipRepository::sortTipsBy($_GET['sort'], $_GET['keyword']);
   foreach ($tips as $tip) {
   ?>
