@@ -8,7 +8,7 @@ class Database {
     private const DB_HOST   = 'localhost';
     private const DB_DBNAME = 'tipsit';
     private const DB_USER   = 'root';
-    private const DB_PASS = 'Najib_93360'; 
+    private const DB_PASS = ''; 
     public static $pdo;
     // private const SGBD = "..." 
 
