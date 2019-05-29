@@ -1,5 +1,5 @@
-CREATE DATABASE Tipsit CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE Tipsit;
+CREATE DATABASE tipsit CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE tipsit;
 
 CREATE TABLE user (
   id INT(3) NOT NULL AUTO_INCREMENT,

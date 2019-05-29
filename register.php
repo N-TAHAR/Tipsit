@@ -3,19 +3,19 @@
 
 
   if(isset($_POST['register'])){
-    $username = trim(strip_tags($_POST['username']));
-    $email = trim(strip_tags($_POST['email']));
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password'])){
 
-    $req = \App\Database::$pdo->prepare(
-      'INSERT INTO user (username, email, password)
-      VALUE (:username, :email, :password)'
-    );
-    $req -> bindParam(':username', $username);
-    $req -> bindParam(':email', $email);
-    $req -> bindParam(':password', $password);
-    $req -> execute();
-    header('Location: login.php');
+      $user = new App\Entity\User();
+  
+      $user->setUsername($_POST['username']);
+      $user->setEmail($_POST['email']);
+      $user->setPassword($_POST['password']);
+      $user->signup();
+  
+      header('Location: login.php');
+    }else{
+      echo 'please fill the form';
+    }
   }
 
   include "assets/inc/header.php";
