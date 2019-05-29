@@ -45,6 +45,7 @@ justify-content:space-between;
   font-size:14px;
   height:30px;
   margin-top:60px;
+  cursor: pointer;
 }
 .name{
   height:30px;
