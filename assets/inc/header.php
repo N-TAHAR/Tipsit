@@ -17,7 +17,7 @@
 <header>
   <nav>
     <ul>
-      <li><a href="index.php">Accueil</a></li>
+      <li><a href="index.php"><img src="./assets/img/logo.png"></a></li>
       <?php if(isLoggedIn()): ?>
         <li><a href="create.php">Add a new tip</a></li>    
         <li><a href="login.php?logout">Deconnexion</a></li>    
