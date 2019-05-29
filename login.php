@@ -3,7 +3,7 @@
 
   if(isset($_POST['login'])){
 
-    $req = $pdo -> prepare(
+    $req = configPDO::$pdo -> prepare(
       ' SELECT * 
         FROM user
         WHERE username = :username AND password = :password
