@@ -1,5 +1,4 @@
 <?php
-use App\Database;
 
 include "assets/config/bootstrap.php";
 
@@ -9,7 +8,7 @@ include "assets/config/bootstrap.php";
 
   if(isset($_POST['login'])){
 
-    $req = Database::$pdo -> prepare(
+    $req = App\Database::$pdo -> prepare(
       ' SELECT * 
         FROM user
         WHERE username = :username AND password = :password
