@@ -18,3 +18,18 @@ CREATE TABLE posts (
   keyword VARCHAR(20) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=INNODB;
+
+<<<<<<< HEAD
+
+CREATE TABLE bulbs (
+  id INT(3) NOT NULL AUTO_INCREMENT,
+  id_user int(3) NOT NULL,
+  id_post int(3) NOT NULL,
+=======
+CREATE TABLE bulbs (
+  id INT(3) NOT NULL AUTO_INCREMENT,
+  id_user INT(3) NOT NULL,
+  id_post INT(3) NOT NULL,
+>>>>>>> f110c1520797bf8e14e469671e198925d259f26b
+  PRIMARY KEY (id)
+) ENGINE=INNODB;
