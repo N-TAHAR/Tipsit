@@ -21,14 +21,13 @@
       <li><a href="index.php"><img class="logo" src="./assets/img/logo.png"></a></li>
       <li><input class="search" type="text" placeholder="Search"></li>
       <?php if(App\Entity\User::isLoggedIn()): ?>
-        <li><a href="favoris.php">Favoris</a></li>  
         <?php if($_SERVER['PHP_SELF'] === '/tipsit/index.php') : ?>
-          <a class="<?php if($_GET['userTips'] === 'on') { echo 'is-active-text'; } ?>" href="index.php?<?php echo App\Entity\Url::getURL(["userTips" => "on"])?>"> UserTips </a>   
+          <a class="<?php if($_GET['userTips'] === 'on') { echo 'is-active-text'; } ?>" href="index.php?<?php echo App\Entity\Url::getURL(["userTips" => "on"])?>"> See my tips </a>   
         <?php endif ?>
-        <li><a href="login.php?logout">Deconnexion</a></li>  
+        <li><a href="login.php?logout">Sign out</a></li>  
       <?php else : ?>
-      <li><a href="login.php">Connexion</a></li>
-      <li><a href="register.php">Inscription</a></li>
+      <li><a href="login.php">Sign in</a></li>
+      <li><a href="register.php">Sign up</a></li>
       <?php endif; ?>
     </ul>
   </nav>
@@ -51,7 +50,7 @@
     </ul>
 
     <div class="create">
-      <a href="create.php">Add a new tip</a>
+      <a href="create.php">Write a new tip</a>
     </div>
   </div>
   <?php
@@ -60,7 +59,7 @@
       if($_GET['userTips'] === 'on'){
         echo '<h1>My Tips</h1>';
       }else{
-        echo '<h1>Tipsit</h1>';
+        echo '<h1>Homepage</h1>';
       }
     }
   ?>

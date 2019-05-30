@@ -14,7 +14,7 @@
   
       header('Location: login.php');
     }else{
-      echo 'please fill the form';
+      echo 'Please, fill the form';
     }
   }
 
@@ -38,25 +38,25 @@
 <section class="sing">
   <div class="img__inscription"></div>
   <div class="user__inscription">
-    <h2>Inscription</h2>
+    <h2>Sign up</h2>
     <form class="form-co" action="register.php" method="post">
       <div class="form-input">
-        <label class="form__title" for="username">Username</label>
+        <label class="form__title" for="username">Your username</label>
         <input type="text" name="username">
       </div>
       <div class="form-input">
-        <label class="form__title" for="email">Email</label>
+        <label class="form__title" for="email">Your email</label>
         <input type="email" name="email">
       </div>
       <div class="form-input">
-        <label class="form__title" for="password">Password</label>
+        <label class="form__title" for="password">Your password</label>
         <input type="password" name="password">
       </div>
-      <input class="register" type="submit" name="register" value="Valider">
+      <input class="register" type="submit" name="register" value="Sign up !">
     </form>
     <div class="connection">
-      <p>vous avez déjà un compte ?</p>
-      <a href="login.php">Connectez-vous</a>
+      <p>Already have an account ?</p>
+      <a class="is-active-text" href="login.php">Sign in</a>
     </div>
   </div>
 </section>

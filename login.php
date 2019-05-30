@@ -44,25 +44,25 @@
 
 
 <body>
-  <a href="index.php"><img class="logo" src="./assets/img/logo.png"> </a>
+  <a href="index.php"><img  class="logo" src="./assets/img/logo.png"> </a>
 <section class="sing">
   <div class="img__inscription"></div>
   <div class="user__inscription">
-    <h2>connection</h2>
+    <h2>Sign in</h2>
       <form class="form-co" action="login.php" method="post">
       <div class="form-input">
-        <label class="form__title" for="username">Username</label>
+        <label class="form__title" for="username">Your username</label>
         <input type="text" name="username">
       </div>
       <div class="form-input">
-        <label class="form__title" for="password">Password</label>
+        <label class="form__title" for="password">Your password</label>
         <input type="password" name="password">
       </div>
-      <input class="register" type="submit" name="login" value="Valider">
+      <input class="register" type="submit" name="login" value="Sign in !">
       </form>
       <div class="connection">
-        <p>vous n'avez pas de compte?</p>
-        <a href="register.php">Inscrivez-vous</a>
+        <p>Don't have an account ?</p>
+        <a class="is-active-text" href="register.php">Sign up</a>
       </div>
     </div>
 </section>
