@@ -37,6 +37,13 @@ class User{
 
   }
 
+  
+  //Un utilisateur est-il connecté ?
+  public static function isLoggedIn() : bool
+  {
+    return isset($_SESSION['user']['username']);
+  }
+
   public function getId(){
     return $this->id;
   }

@@ -3,13 +3,24 @@
     <p class="article"> <?php echo $tip->getContent() ?> </p>
     <div class="bottom">
       <div class="bottomlikes">
-        <div class="ampoule"  onclick="ajax(<?php echo $tip->getId() ?>)">
+        <div class="ampoule" onclick="<?php 
+          if(isset($_SESSION['user']['id'])){
+            echo 'ajax(' . $tip->getId() . ')' ;
+          }else{
+            echo 'redirect()' ;
+          }
+         
+         ?>">
           <p class="addition"></p>
           <img src="./assets/img/ampoulenoire.svg" class="ampoulenoire">
-          <img src="./assets/img/ampoulesombre.svg" class="ampoulesombre <?php 
-          if(intval($bulbNumber['bulbNumber']) >= 10) {
-            echo 'add';
-          } ?>">
+          <img src="./assets/img/ampoulesombre.svg" class="ampoulesombre <?php
+          if(isset($_SESSION['user']['id'])){
+            if(intval($bulbNumber['bulbNumber']) >= 10) {
+              echo 'add';
+            }
+          }
+          
+          ?>">
           <img src="./assets/img/Sans titre - 1.svg" class="partie1">
           <img src="./assets/img/Sans titre - 2.svg" class="partie2">
           <img src="./assets/img/Sans titre - 3.svg" class="partie3">

@@ -1,42 +1,15 @@
 <?php 
   include "assets/config/bootstrap.php";
-  include "assets/inc/header.php";
-
   if (!isset($_GET['sort']) || !isset($_GET['keyword'])) {
-    header('Location: index.php?' . getURL(["sort" => "hot", "keyword" => "all", "userTips" => "off"]));
+    header('Location: index.php?' . App\Entity\Url::getURL(["sort" => "hot", "keyword" => "all", "userTips" => "off"]));
   };
+  include "templates/header.php";
   
-  function getURL($array) {
-    $params = array_merge($_GET, $array);
-    return http_build_query($params);
-  };
-  
-  if($_GET['userTips'] === 'on'){
-    echo '<h1>My Tips</h1>';
-  }else{
-    echo '<h1>Tipsit</h1>';
-  }
 ?>
 
-<<<<<<< HEAD
-  <h1>Tipsit</h1>
-  <section class='tips'>
 
-=======
->>>>>>> ea9d701333273fbb81e420529623ae1c03bf11aa
-  <a href="index.php?<?php echo getURL(["sort" => "hot"]);?>"> Hot </a>
-  <a href="index.php?<?php echo getURL(["sort" => "new"])?>"> New </a>
-  <br> <br>
-  <a href="index.php?<?php echo getURL(["keyword" => "all"])?>"> All </a>
-  <a href="index.php?<?php echo getURL(["keyword" => "front"])?>"> Front </a>
-  <a href="index.php?<?php echo getURL(["keyword" => "back"])?>"> Back </a>
-  <a href="index.php?<?php echo getURL(["keyword" => "design"])?>"> Design </a>
   <br><br>
-<<<<<<< HEAD
-
-=======
   <section class='tips'>
->>>>>>> ea9d701333273fbb81e420529623ae1c03bf11aa
   <?php
   if($_GET['userTips'] === 'on' && !empty($_SESSION['user']['username'])){
     $tips = App\Entity\TipRepository::sortTipsBy($_GET['sort'], $_GET['keyword'], $_SESSION['user']['username']);
@@ -47,10 +20,12 @@
   foreach ($tips as $tip) {
 
     // checker le nombre de likes sur chaque post par l'utilisateur connecté
-    $bulbs->setUserId($_SESSION['user']['id']);
-    $bulbs->setPostId($tip->id);
-
-    $bulbNumber = $bulbs->getLikesByUser();
+    if(isset($_SESSION['user']['id'])){
+      $bulbs->setUserId($_SESSION['user']['id']);
+      $bulbs->setPostId($tip->id);
+  
+      $bulbNumber = $bulbs->getLikesByUser();
+    }
   
     include "templates/post.php";  
   ?>

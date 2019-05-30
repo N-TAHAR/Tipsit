@@ -7,6 +7,5 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 // __DIR__ retourne le chemin jusqu'au dossier dans lequel le fichier se trouve
 App\Database::connect();
 
-require_once __DIR__ . '/fonctions.php';
 
 session_start();

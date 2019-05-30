@@ -2,6 +2,11 @@
 
 include "assets/config/bootstrap.php";
 
+  // Déconnexion si l'utilisateur arrive depuis login.php?logout
+  if (isset($_GET['logout'])) {
+    unset($_SESSION['user']);
+  }
+
   if(isset($_SESSION['user']['username'])){
     header('Location: index.php');  
   }
@@ -28,11 +33,8 @@ include "assets/config/bootstrap.php";
     // On redirige sur la page d'accueil
   }
   
-  // Déconnexion si l'utilisateur arrive depuis login.php?logout
-  if (isset($_GET['logout'])) {
-    unset($_SESSION['user']);
-  }
-  include "assets/inc/header.php";
+
+  include "templates/header.php";
 ?>
 
 <h1>Connexion</h1>
