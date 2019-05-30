@@ -10,10 +10,6 @@ function ajax(postId) {
   })
 }
 
-if (1===1) {
-  console.log(console);
-}
-
 //bulb
 var posts = document.querySelectorAll('.post')
 posts.forEach(post => {
@@ -68,3 +64,4 @@ posts.forEach(post => {
   
 }}); 
 });
+
