@@ -18,6 +18,12 @@
   }
 ?>
 
+<<<<<<< HEAD
+  <h1>Tipsit</h1>
+  <section class='tips'>
+
+=======
+>>>>>>> ea9d701333273fbb81e420529623ae1c03bf11aa
   <a href="index.php?<?php echo getURL(["sort" => "hot"]);?>"> Hot </a>
   <a href="index.php?<?php echo getURL(["sort" => "new"])?>"> New </a>
   <br> <br>
@@ -26,7 +32,11 @@
   <a href="index.php?<?php echo getURL(["keyword" => "back"])?>"> Back </a>
   <a href="index.php?<?php echo getURL(["keyword" => "design"])?>"> Design </a>
   <br><br>
+<<<<<<< HEAD
+
+=======
   <section class='tips'>
+>>>>>>> ea9d701333273fbb81e420529623ae1c03bf11aa
   <?php
   if($_GET['userTips'] === 'on' && !empty($_SESSION['user']['username'])){
     $tips = App\Entity\TipRepository::sortTipsBy($_GET['sort'], $_GET['keyword'], $_SESSION['user']['username']);
