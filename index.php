@@ -1,12 +1,11 @@
 <?php 
   include "assets/config/bootstrap.php";
-  if (!isset($_GET['sort']) || !isset($_GET['keyword'])) {
+  if (!isset($_GET['sort']) || !isset($_GET['keyword']) || !isset($_GET['userTips'])) {
     header('Location: index.php?' . App\Entity\Url::getURL(["sort" => "hot", "keyword" => "all", "userTips" => "off"]));
   };
-  include "templates/header.php";
-  
-?>
 
+  include "templates/header.php";
+?>
   <br><br>
   <section class='tips'>
   <?php

@@ -20,8 +20,8 @@
       <li><a href="index.php"><img src="./assets/img/logo.png"></a></li>
       <?php if(App\Entity\User::isLoggedIn()): ?>
         <li><a href="favoris.php">Favoris</a></li>  
-        <?php if($_SERVER['PHP_SELF'] === '/Tipsit/index.php') : ?>
-          <a href="index.php?<?php echo App\Entity\Url::getURL(["userTips" => "on"])?>"> UserTips </a>   
+        <?php if($_SERVER['PHP_SELF'] === '/tipsit/index.php') : ?>
+          <a class="<?php if($_GET['userTips'] === 'on') { echo 'is-active'; } ?>" href="index.php?<?php echo App\Entity\Url::getURL(["userTips" => "on"])?>"> UserTips </a>   
         <?php endif ?>
         <li><a href="login.php?logout">Deconnexion</a></li>  
       <?php else : ?>
@@ -33,9 +33,6 @@
   
   <?php
   
-    // if (!isset($_GET['sort']) || !isset($_GET['keyword'])) {
-    //   header('Location: index.php?' . App\Entity\Url::getURL(["sort" => "hot", "keyword" => "all", "userTips" => "off"]));
-    // };
     if(isset($_GET['userTips'])){
       if($_GET['userTips'] === 'on'){
         echo '<h1>My Tips</h1>';
@@ -49,15 +46,15 @@
   <div class="sub-header">
 
     <ul class="sort">
-      <li class="hot"><a href="index.php?<?php echo App\Entity\Url::getURL(["sort" => "hot"]);?>"> Hot </a></li>
-      <li class="new"><a href="index.php?<?php echo App\Entity\Url::getURL(["sort" => "new"])?>"> New </a>
+      <li class="hot <?php if($_GET['sort'] === 'hot') { echo 'is-active'; } ?>"><a href="index.php?<?php echo App\Entity\Url::getURL(["sort" => "hot"]);?>"> Hot </a></li>
+      <li class="new <?php if($_GET['sort'] === 'new') { echo 'is-active'; } ?>"><a href="index.php?<?php echo App\Entity\Url::getURL(["sort" => "new"])?>"> New </a>
     </ul>
 
     <ul class="menu">
-      <li class="menu__li"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "all"])?>"> All </a></li>
-      <li class="menu__li"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "front"])?>"> Front </a></li>
-      <li class="menu__li"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "back"])?>"> Back </a></li>
-      <li class="menu__li"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "design"])?>"> Design </a></li>
+      <li class="menu__li <?php if($_GET['keyword'] === 'all') { echo 'is-active'; } ?>"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "all"])?>"> All </a></li>
+      <li class="menu__li <?php if($_GET['keyword'] === 'front') { echo 'is-active'; } ?>"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "front"])?>"> Front </a></li>
+      <li class="menu__li <?php if($_GET['keyword'] === 'back') { echo 'is-active'; } ?>"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "back"])?>"> Back </a></li>
+      <li class="menu__li <?php if($_GET['keyword'] === 'design') { echo 'is-active'; } ?>"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "design"])?>"> Design </a></li>
     </ul>
 
     <div class="create">

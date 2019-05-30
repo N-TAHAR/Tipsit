@@ -1,8 +1,6 @@
 <?php
-
-include "assets/config/bootstrap.php";
-
-  // Déconnexion si l'utilisateur arrive depuis login.php?logout
+  include "assets/config/bootstrap.php";
+// Déconnexion si l'utilisateur arrive depuis login.php?logout
   if (isset($_GET['logout'])) {
     unset($_SESSION['user']);
   }
@@ -35,8 +33,7 @@ include "assets/config/bootstrap.php";
   
 
   include "templates/header.php";
-?>
-
+  ?>
 <h1>Connexion</h1>
 
 <form action="login.php" method="post">
