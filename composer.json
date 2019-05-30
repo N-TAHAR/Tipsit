@@ -1,0 +1,10 @@
+{
+    "name": "felix/tipsit",
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/" 
+        }
+    }
+}
