@@ -49,9 +49,10 @@
       <li class="menu__li <?php if($_GET['keyword'] === 'design') { echo 'is-active-text'; } ?>"><a href="index.php?<?php echo App\Entity\Url::getURL(["keyword" => "design"])?>"> Design </a></li>
     </ul>
 
+    <a href="create.php">
     <div class="create">
-      <a href="create.php">Write a new tip</a>
-    </div>
+      Write a new tip
+    </div></a>
   </div>
   <?php
   
