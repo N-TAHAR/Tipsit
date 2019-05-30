@@ -4,17 +4,13 @@ namespace App\Entity;
 
 class Tip {
 
-    const CATEGORIES = array(
-      'front',
-      'back',
-      'design'
-    );
     public $id;
     public $username;
     public $content;
     public $date;
     public $claps;
     public $keyword;
+    public $id_user_favoris;
     
     public function createTip(){
 
@@ -26,6 +22,30 @@ class Tip {
       $req -> bindParam(':content', $this->getContent());
       $req -> bindParam(':keyword', $this->getKeyword());
       $req -> execute();
+    }
+
+    public function favoris(){
+
+      $req = \App\Database::$pdo -> prepare(
+        'INSERT INTO favoris (id_user_favoris ,username, content, keyword, claps, date)
+        VALUES (:favoris, :username, :content, :keyword, :claps, NOW())'
+      );
+      $req -> bindParam(':favoris', $this->id_user_favoris);
+      $req -> bindParam(':claps', $this->claps);
+      $req -> bindParam(':username', $this->username);
+      $req -> bindParam(':content', $this->content);
+      $req -> bindParam(':keyword', $this->keyword);
+      $req -> execute();
+    }
+
+
+
+    public function getIdUserFavoris(){
+      return $this->id_user_favoris;
+    }
+
+    public function setIdUserFavoris($id_user_favoris){
+      $this->id_user_favoris = $id_user_favoris;
     }
 
     public function getId(){

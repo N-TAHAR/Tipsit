@@ -25,3 +25,14 @@ CREATE TABLE bulbs (
   id_post INT(3) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=INNODB;
+
+CREATE TABLE favoris (
+  id INT(3) NOT NULL AUTO_INCREMENT,
+  id_user_favoris INT(3) NOT NULL,
+  username VARCHAR(20) NOT NULL,
+  content VARCHAR(300) NOT NULL,
+  date VARCHAR(255) NOT NULL,
+  claps INT(3) DEFAULT 0,
+  keyword VARCHAR(20) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=INNODB;

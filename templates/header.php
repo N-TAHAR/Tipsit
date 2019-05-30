@@ -32,10 +32,6 @@
   </nav>
   
   <?php
-  
-    // if (!isset($_GET['sort']) || !isset($_GET['keyword'])) {
-    //   header('Location: index.php?' . App\Entity\Url::getURL(["sort" => "hot", "keyword" => "all", "userTips" => "off"]));
-    // };
     if(isset($_GET['userTips'])){
       if($_GET['userTips'] === 'on'){
         echo '<h1>My Tips</h1>';
@@ -44,8 +40,6 @@
       }
     }
   ?>
-
-
   <div class="sub-header">
 
     <ul class="sort">

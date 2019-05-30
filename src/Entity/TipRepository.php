@@ -4,6 +4,21 @@ namespace App\Entity;
 
 class TipRepository {
 
+  public static function favoris($id_user){
+    $req = \App\Database::$pdo->prepare(
+      'SELECT *
+      FROM favoris
+      WHERE id_user_favoris = :id_user
+      GROUP BY content
+      '
+    );
+    $req -> bindParam(':id_user', $id_user);
+    $req->execute();
+    $tips = $req->fetchAll(\PDO::FETCH_CLASS, Tip::class);
+
+    return $tips;
+  }
+
   public static function sortTipsBy($sort, $keyword, $username = NULL) {
 
     if ($sort === 'new') {

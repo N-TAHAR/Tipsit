@@ -65,3 +65,13 @@ function ajax(postId) {
 function redirect(){
   window.location.href = "login.php";
 }
+
+function favoris(userId) {
+
+  console.log('ye')
+  // $.ajax({
+  //   type: "POST",
+  //   url: "clap.php",
+  //   data: {userId: userId, },
+  // })
+}

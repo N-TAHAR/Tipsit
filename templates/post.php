@@ -17,6 +17,8 @@
           if(isset($_SESSION['user']['id'])){
             if(intval($bulbNumber['bulbNumber']) >= 10) {
               echo 'add';
+              $tip->setIdUserFavoris($_SESSION['user']['id']);
+              $tip->favoris();
             }
           }
           
