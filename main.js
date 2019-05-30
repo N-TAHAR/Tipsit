@@ -1,5 +1,3 @@
-var posts = document.querySelectorAll('.post')
-
 function ajax(postId) {
   $.ajax({
     type: "POST",

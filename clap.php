@@ -5,8 +5,8 @@ header('Content-Type: application/json');
 
 
   include "assets/config/bootstrap.php";
-  
-  
+    
+    
     $postid = $_POST['postId'];
     $userid = $_SESSION['user']['id'];
   

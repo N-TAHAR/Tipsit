@@ -12,7 +12,7 @@
   };
 ?>
 
-  <h1>Tipsit</h1>
+  <h1>Bonjour, <?php echo $_SESSION['user']['username']; ?> </h1>
 
   <a href="index.php?<?php echo getURL(["sort" => "hot"]);?>"> Hot </a>
   <a href="index.php?<?php echo getURL(["sort" => "new"])?>"> New </a>
