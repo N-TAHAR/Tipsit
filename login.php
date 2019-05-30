@@ -30,23 +30,42 @@
 
     // On redirige sur la page d'accueil
   }
-  
+?>
 
-  include "templates/header.php";
-  ?>
-<h1>Connexion</h1>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Tipsit</title>
+</head>
 
-<form action="login.php" method="post">
-  <div>
-    <label for="username">Username</label>
-    <input type="text" name="username">
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password">
-  </div>
-  <input type="submit" name="login" value="Valider">
-</form>
+
+<body>
+  <a href="index.php"><img class="logo" src="./assets/img/logo.png"> </a>
+<section class="sing">
+  <div class="img__inscription"></div>
+  <div class="user__inscription">
+    <h2>connection</h2>
+      <form class="form-co" action="login.php" method="post">
+      <div class="form-input">
+        <label class="form__title" for="username">Username</label>
+        <input type="text" name="username">
+      </div>
+      <div class="form-input">
+        <label class="form__title" for="password">Password</label>
+        <input type="password" name="password">
+      </div>
+      <input class="register" type="submit" name="login" value="Valider">
+      </form>
+      <div class="connection">
+        <p>vous n'avez pas de compte?</p>
+        <a href="register.php">Inscrivez-vous</a>
+      </div>
+    </div>
+</section>
 
 
 </body>
