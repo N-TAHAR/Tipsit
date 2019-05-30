@@ -32,19 +32,17 @@
   include "assets/inc/header.php";
 ?>
 
-<h1>Create new tips</h1>
-
-<form action="create.php" method="post">
-  <textarea name="content" id="content" cols="30" rows="10" maxlength="300" placeholder="Write your tip here ..."></textarea>
-  <label for="keyword">Choose a keyword</label>
-  <select name="keyword" id="keyword">
-    <option value="">Please choose a keyword</option>
-    <option value="front">front</option>
-    <option value="back">back</option>
-    <option value="design">design</option>
-  </select>
-  <input type="submit" name="create">
-</form>
-
+<div class="post post--form">
+  <form action="create.php" method="post">
+    <select class="keyword keyword--form" name="keyword" id="keyword">
+      <option value="">Please choose a keyword</option>
+      <option value="front">front</option>
+      <option value="back">back</option>
+      <option value="design">design</option>
+    </select>
+    <textarea class="article article--form" name="content" id="content" cols="30" rows="10" maxlength="300" placeholder="Write your tip here ..."></textarea> 
+    <input class="bottom bottom--form" type="submit" name="create">
+  </form>
+</div>
 </body>
 </html>

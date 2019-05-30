@@ -11,21 +11,34 @@
     return http_build_query($params);
   };
   
-  if($_GET['userTips'] === 'on'){
-    echo '<h1>My Tips</h1>';
-  }else{
-    echo '<h1>Tipsit</h1>';
-  }
+  // if($_GET['userTips'] === 'on'){
+  //   echo '<h1>My Tips</h1>';
+  // }else{
+  //   echo '<h1>FEED</h1>';
+  // }
 ?>
 
-  <a href="index.php?<?php echo getURL(["sort" => "hot"]);?>"> Hot </a>
-  <a href="index.php?<?php echo getURL(["sort" => "new"])?>"> New </a>
-  <br> <br>
-  <a href="index.php?<?php echo getURL(["keyword" => "all"])?>"> All </a>
-  <a href="index.php?<?php echo getURL(["keyword" => "front"])?>"> Front </a>
-  <a href="index.php?<?php echo getURL(["keyword" => "back"])?>"> Back </a>
-  <a href="index.php?<?php echo getURL(["keyword" => "design"])?>"> Design </a>
-  <br><br>
+<div class="sub-header">
+    <ul class="sort">
+      <li class="hot">
+        <a href="index.php?<?php echo getURL(["sort" => "hot"]);?>"> Hot </a>
+      </li>
+      <li class="new">
+        <a href="index.php?<?php echo getURL(["sort" => "new"])?>"> New </a>
+      </li>
+      
+</ul>
+    <ul class="menu">
+      <li class="menu__li"><a href="index.php?<?php echo getURL(["keyword" => "all"])?>"> All </a></li>
+      <li class="menu__li"><a href="index.php?<?php echo getURL(["keyword" => "front"])?>"> Front </a></li>
+      <li class="menu__li"><a href="index.php?<?php echo getURL(["keyword" => "back"])?>"> Back </a></li>
+      <li class="menu__li"><a href="index.php?<?php echo getURL(["keyword" => "design"])?>"> Design </a></li>
+  </ul>
+    <div class="create">
+      <a href="create.php">Add a new tip</a>
+    </div>
+  </div>
+  
   <section class='tips'>
   <?php
   if($_GET['userTips'] === 'on' && !empty($_SESSION['user']['username'])){

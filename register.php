@@ -22,24 +22,32 @@
 
 ?>
 
-<h1>Inscription</h1>
 
-<form action="register.php" method="post">
-  <div>
-    <label for="username">Username</label>
-    <input type="text" name="username">
+<section class="sing">
+  <div class="img__inscription"></div>
+  <div class="user__inscription">
+    <h2>Inscription</h2>
+    <form class="form-co" action="register.php" method="post">
+      <div class="form-input">
+        <label class="form__title" for="username">Username</label>
+        <input type="text" name="username">
+      </div>
+      <div class="form-input">
+        <label class="form__title" for="email">Email</label>
+        <input type="email" name="email">
+      </div>
+      <div class="form-input">
+        <label class="form__title" for="password">Password</label>
+        <input type="password" name="password">
+      </div>
+      <input class="register" type="submit" name="register" value="Valider">
+    </form>
+    <div class="connection">
+      <p>vous avez déjà un compte ?</p>
+      <a href="login.php">Connectez-vous</a>
+    </div>
   </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="email" name="email">
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password">
-  </div>
-  <input type="submit" name="register" value="Valider">
-</form>
-
+</section>
 
 </body>
 </html>

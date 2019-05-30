@@ -6,7 +6,7 @@ class Database {
 
     private const DB_SGBD   = 'mysql';
     private const DB_HOST   = 'localhost';
-    private const DB_DBNAME = 'Tipsit';
+    private const DB_DBNAME = 'tipsit';
     private const DB_USER   = 'root';
     private const DB_PASS = ''; 
     public static $pdo;

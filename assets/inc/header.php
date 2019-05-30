@@ -16,14 +16,14 @@
 
 <header>
   <nav>
-    <ul>
-      <li><a href="index.php"><img src="./assets/img/logo.png"></a></li>
+    <ul class="header">
+      <li><a href="index.php"><img class="logo" src="./assets/img/logo.png"></a></li>
       <?php if(isLoggedIn()): ?>
-        <li><a href="create.php">Add a new tip</a></li>    
-        <li><a href="favoris.php">Favoris</a></li>  
-        <?php if($_SERVER['PHP_SELF'] === '/Tipsit/index.php') : ?>
-          <a href="index.php?<?php echo getURL(["userTips" => "on"])?>"> UserTips </a>   
-        <?php endif ?>
+        <li><input class="search" type="text" placeholder="Search"></li>
+        <!-- <li><a href="favoris.php">Favoris</a></li>   -->
+        <!-- <(?php if($_SERVER['PHP_SELF'] === '/Tipsit/index.php') : ?>
+          <a href="index.php?<(?php echo getURL(["userTips" => "on"])?>"> UserTips </a>   
+        <(?php endif ?> -->
         <li><a href="login.php?logout">Deconnexion</a></li>  
       <?php else : ?>
       <li><a href="login.php">Connexion</a></li>
