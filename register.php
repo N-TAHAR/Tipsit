@@ -18,7 +18,7 @@
     }
   }
 
-  include "assets/inc/header.php";
+  include "templates/header.php";
 
 ?>
 
