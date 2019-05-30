@@ -28,6 +28,23 @@ class Tip {
       $req -> execute();
     }
 
+    public function getDateMessage() {
+      $postDate = strtotime($this->getDate());
+      $currentDate = time();
+      $datediff = $currentDate - $postDate;
+      $dateDifference = round($datediff / (60 * 60 * 24));
+  
+      if ($dateDifference == 0) {
+        $dateMessage = 'Posted today';
+      } else if ($dateDifference <= 1) {
+        $dateMessage = 'Posted ' . $dateDifference . ' day ago';
+      } else {
+        $dateMessage = 'Posted ' . $dateDifference . ' days ago';
+      }
+      echo $dateMessage;
+
+    }
+
     public function getId(){
       return $this->id;
     }

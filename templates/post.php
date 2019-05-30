@@ -35,5 +35,5 @@
       </div>
       <p class="name"> <?php echo $tip->getUsername() ?> </p>
     </div>
-    <!-- <span class="date"><(?php echo $tip->getDate() ?> </span> -->
+    <span class="date"> <?php $tip->getDateMessage(); ?> </span>
   </article>
