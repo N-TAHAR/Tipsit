@@ -22,7 +22,9 @@
       <li><input class="search" type="text" placeholder="Search"></li>
       <?php if(App\Entity\User::isLoggedIn()): ?>
         <?php if($_SERVER['PHP_SELF'] === '/tipsit/index.php') : ?>
-          <a class="<?php if($_GET['userTips'] === 'on') { echo 'is-active-text'; } ?>" href="index.php?<?php echo App\Entity\Url::getURL(["userTips" => "on"])?>"> See my tips </a>   
+          <a class="<?php if($_GET['userTips'] === 'on') { echo 'is-active-text'; } ?>" href="index.php?<?php echo App\Entity\Url::getURL(["userTips" => "on"])?>"> See my tips </a>  
+          <a href="favoris.php"> SEE FAVORIS </a>    
+          
         <?php endif ?>
         <li><a href="login.php?logout">Sign out</a></li>  
       <?php else : ?>
